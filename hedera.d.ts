@@ -1,0 +1,197 @@
+import { stringify } from "querystring";
+
+declare let _default: {
+  Hedera: Hedera,
+  Query: Query,
+  CryptoGetAccountBalance: CryptoGetAccountBalance,
+  CryptoGetAccountRecords: CryptoGetAccountRecords,
+  CryptoTransfer: CryptoTransfer,
+  CryptoGetInfo: CryptoGetInfo,
+  Transaction: Transaction,
+  TransactionID: TransactionID,
+  TransactionGetRecord: TransactionGetRecord,
+  TransactionGetFastRecord: TransactionGetFastRecord,
+}
+export default _default;
+
+export declare namespace util {
+  function fromPrivateKeyDer(privateKeyDer: string): string;
+  function fromPublicKeyDer(publicKeyDer: string): string;
+  function toHbar(tinyBar: Long | string): string;
+  function toTinyBar(hBar: Long | string): string;
+  function getOperatorId(transaction: {}): AccountID;
+  function getTransactionId(transaction: {}): TransactionID;
+  function getTransfers(transaction: {}): { accountId: string, amount: string }[];
+  function getRecordTransfers(record: {}): { accountId: string, amount: string }[];
+}
+
+export declare interface Duration {
+  seconds: number,
+  nanos?: string,
+}
+
+export declare class Hedera {
+  nodeUrl: string;
+  nodeAccountId: AccountID;
+  operatorId: AccountID;
+  cryptoService: any;
+
+  constructor(nodeUrl: string, nodeAccountId: string, operatorId: string, operatorPrivateKey: string)
+
+  broadcast(requestName: string, tx: {}): Promise<{}>
+  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<{}>
+  cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
+  getAccountRecords(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, records: Query.Record[] }>
+  getAccountInfo(queryAccountId: string): Promise<{  }>
+  getFastTransactionRecord(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
+  getTxRecordByTxID(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
+}
+
+export declare class AccountID {
+  constructor(obj: AccountID | string | { shardNum: string | number, realmNum: string | number, accountNum: string | number });
+
+  fromString(str: string): AccountID;
+  toObject(): { accountNum: number };
+  toString(): string;
+  getShardID(): { shardNum: number };
+  getRealmID(): { RealmNum: number };
+}
+
+export declare interface TransactionID {
+  transactionValidStart: {
+    seconds: string,
+  }
+  accountID: AccountID | string,
+}
+
+export declare interface Query {
+
+}
+
+export declare namespace Query {
+  export enum RESPONSE_TYPE {
+    ANSWER_ONLY = 0, // Response returns answer
+    ANSWER_STATE_PROOF = 1, // Response returns both answer and state proof
+    COST_ANSWER = 2, // Response returns the cost of answer
+    COST_ANSWER_STATE_PROOF = 3,
+  }
+
+  export interface QueryResponse {
+    header: {
+      nodeTransactionPrecheckCode: string,
+      cost: string,
+    }
+  }
+
+  export interface Record {
+    transactionHash: Buffer,
+    consensusTimestamp: { seconds: number, nanos: string },
+    transactionID: TransactionID,
+    memo?: string,
+    transactionFee: string,
+    transferList?: { accountAmounts: { accountID: string, amount: string }[] },
+  }
+
+  export interface Header {
+    nodeTransactionPrecheckCode: string,
+    cost: string,
+  }
+
+  export interface GetAccountBalanceResponse extends QueryResponse {
+    accountID: string,
+    balance: string,
+  }
+
+  export interface GetAccountRecordsReponse extends QueryResponse {
+    accountID: string,
+    records: Record[],
+  }
+}
+
+export declare class Query {
+  constructor(options: { nodeAccountId: AccountID | string, operatorId: AccountID | string });
+
+  serialize(): Promise<string>;
+  static deserialize(hex: string): Promise<{}>;
+  signTransaction(privateKey: string): Promise<Query>;
+  toObject(): {};
+}
+
+export declare class Transaction {
+  constructor(options: { operatorId: AccountID | string, nodeAccountId: AccountID | string});
+
+  addSignature(signature: string | Buffer): Transaction;
+  serialize(): Promise<string>;
+  static deserialize(hex: string): Promise<{}>;
+  toObject(): {};
+  getTransactionId(): TransactionID;
+  signTransaction(privateKey: string): Promise<Transaction>;
+}
+
+export declare class CryptoGetAccountBalance extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    queryAccountId: string | AccountID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class CryptoGetAccountRecords extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    queryAccountId: string | AccountID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class CryptoGetInfo extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    queryAccountId: string | AccountID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class TransactionGetRecord extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    transactionId: TransactionID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class TransactionGetFastRecord extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    transactionId: TransactionID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class CryptoTransfer extends Transaction {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    destinations: {
+      accountId: AccountID | string,
+      amount: string | Long,
+    }[],
+    transactionValidStart?: Duration,
+    transactionFee?: string,
+    transactionValidDuration?: Duration,
+    memo?: string,
+  });
+}
+
+export declare class TransactionID {
+  constructor(obj: { accountID: AccountID | string, transactionValidStart: { seconds: string | number | Long } });
+
+  toObject(): { accountID: string, transactionValidStart: Duration };
+  static serialize(transactionId: TransactionID): Promise<string>;
+  static deserialize(hex: string): Promise<TransactionID>;
+}
