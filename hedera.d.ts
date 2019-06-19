@@ -1,6 +1,6 @@
 import { stringify } from "querystring";
 
-declare let _default: {
+declare const _default: {
   Hedera: Hedera,
   Query: Query,
   CryptoGetAccountBalance: CryptoGetAccountBalance,
@@ -38,11 +38,11 @@ export declare class Hedera {
 
   constructor(nodeUrl: string, nodeAccountId: string, operatorId: string, operatorPrivateKey: string)
 
-  broadcast(requestName: string, tx: {}): Promise<{}>
-  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<{}>
+  broadcast(requestName: string, tx: {}): Promise<string | {}>
+  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<string>
   cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
   getAccountRecords(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, records: Query.Record[] }>
-  getAccountInfo(queryAccountId: string): Promise<{  }>
+  getAccountInfo(queryAccountId: string): Promise<{}>
   getFastTransactionRecord(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
   getTxRecordByTxID(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
 }
@@ -95,16 +95,6 @@ export declare namespace Query {
   export interface Header {
     nodeTransactionPrecheckCode: string,
     cost: string,
-  }
-
-  export interface GetAccountBalanceResponse extends QueryResponse {
-    accountID: string,
-    balance: string,
-  }
-
-  export interface GetAccountRecordsReponse extends QueryResponse {
-    accountID: string,
-    records: Record[],
   }
 }
 
