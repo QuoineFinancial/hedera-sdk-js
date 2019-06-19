@@ -47,6 +47,12 @@ export declare class Hedera {
   getTxRecordByTxID(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
 }
 
+export declare interface AccountID {
+  shardNum?: number;
+  realmNum?: number;
+  accountNum?: number;
+}
+
 export declare class AccountID {
   constructor(obj: AccountID | string | { shardNum: string | number, realmNum: string | number, accountNum: string | number });
 
