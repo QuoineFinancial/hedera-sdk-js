@@ -39,10 +39,12 @@ export declare class Hedera {
   constructor(nodeUrl: string, nodeAccountId: string, operatorId: string, operatorPrivateKey: string)
 
   broadcast(requestName: string, tx: {}): Promise<string | {}>
-  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<string>
+  createAccount(newAccountPublicKey: string, initialBalance: string): Promise<Query.Receipt>
+  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<Query.Record>
   cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
   getAccountRecords(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, records: Query.Record[] }>
   getAccountInfo(queryAccountId: string): Promise<{}>
+  getTransactionReceipts(transactionId: TransactionID): Promise<{ header: Query.Header, receipt: Query.Receipt }>
   getFastTransactionRecord(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
   getTxRecordByTxID(transactionId: TransactionID): Promise<{ header: Query.Header, transactionRecord: Query.Record }>
 }
@@ -87,6 +89,13 @@ export declare namespace Query {
       nodeTransactionPrecheckCode: string,
       cost: string,
     }
+  }
+
+  export interface Receipt {
+    status: string,
+    accountID?: string,
+    fileID?: string,
+    contractID?: string,
   }
 
   export interface Record {
@@ -147,6 +156,15 @@ export declare class CryptoGetInfo extends Query {
     nodeAccountId: AccountID | string,
     operatorId: AccountID | string,
     queryAccountId: string | AccountID,
+    responseType?: Query.RESPONSE_TYPE,
+  });
+}
+
+export declare class TransactionGetReceipt extends Query {
+  constructor(options: {
+    nodeAccountId: AccountID | string,
+    operatorId: AccountID | string,
+    transactionId: TransactionID,
     responseType?: Query.RESPONSE_TYPE,
   });
 }
