@@ -8,8 +8,6 @@ const TransactionGetFastRecord = require('./lib/transactionGetFastRecord');
 const TransactionGetRecord = require('./lib/transactionGetRecord');
 const Transaction = require('./lib/transaction');
 const TransactionID = require('./lib/transactionId');
-
-
 const util = require('./lib/util');
 
 module.exports = {
