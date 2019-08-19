@@ -23,14 +23,12 @@
   resolved "https://registry.yarnpkg.com/@fidm/asn1/-/asn1-1.0.4.tgz#afbf9f10a0cb83aca2114c6f59a97dd48eb7dd84"
   integrity sha512-esd1jyNvRb2HVaQGq2Gg8Z0kbQPXzV9Tq5Z14KNIov6KfFD6PTaRIO8UpcsYiTNzOqJpmyzWgVTrUwFV3UF4TQ==
 
-"@grpc/proto-loader@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.3.0.tgz#c127d3859bff895f220453612ba04b923af0c584"
-  integrity sha512-9b8S/V+3W4Gv7G/JKSZ48zApgyYbfIR7mAC9XNnaSWme3zj57MIESu0ELzm9j5oxNIpFG8DgO00iJMIUZ5luqw==
+"@grpc/proto-loader@^0.5.0":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.5.1.tgz#48492b53cdda353110b51a4b02f465974729c76f"
+  integrity sha512-3y0FhacYAwWvyXshH18eDkUI40wT/uGio7MAegzY8lO5+wVsc19+1A7T0pPptae4kl7bdITL+0cHpnAPmryBjQ==
   dependencies:
-    "@types/lodash" "^4.14.104"
-    "@types/node" "^9.4.6"
-    lodash "^4.17.5"
+    lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
@@ -86,11 +84,6 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@types/lodash@^4.14.104":
-  version "4.14.129"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.129.tgz#9aaca391db126802482655c48dd79a814488202f"
-  integrity sha512-oYaV0eSlnOacOr7i4X1FFdH8ttSlb57gu3I9MuStIv2CYkISEY84dNHYsC3bF6sNH7qYcu1BtVrCtQ8Q4KPTfQ==
-
 "@types/long@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
@@ -100,11 +93,6 @@
   version "10.14.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.6.tgz#9cbfcb62c50947217f4d88d4d274cc40c22625a9"
   integrity sha512-Fvm24+u85lGmV4hT5G++aht2C5I4Z4dYlWZIh62FAfFO/TfzXtPpoLI6I7AuBWkIFqZCnhFOoTT7RjjaIL5Fjg==
-
-"@types/node@^9.4.6":
-  version "9.6.48"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.48.tgz#06e765bda1fef91b075c58d540207e8b37dbdc1f"
-  integrity sha512-velR2CyDrHC1WFheHr5Jm25mdCMs0BXJRp6u0zf8PF9yeOy4Xff5sJeusWS7xOmhAoezlSq8LJ0+9M5H7YkTdw==
 
 abbrev@1:
   version "1.1.1"
@@ -199,12 +187,10 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
-async@^2.6.1:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.6.2.tgz#18330ea7e6e313887f5d2f2a904bac6fe4dd5381"
-  integrity sha512-H1qVYh1MYhEEFLsP97cVKqCGo7KfCyTt6uEWqsTBr9SO84oK9Uwbyd/yCW+6rKJLHksBNUVWZDAjfS+Ccx0Bbg==
-  dependencies:
-    lodash "^4.17.11"
+async@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.1.0.tgz#42b3b12ae1b74927b5217d8c0016baaf62463772"
+  integrity sha512-4vx/aaY6j/j3Lw3fbCHNWP0pPaTCew3F6F3hYyl/tHs/ndmV1q7NW9T5yuJ2XAGwdQrP+6Wu20x06U4APo/iQQ==
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -712,17 +698,17 @@ graceful-fs@^4.1.2:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
 
-grpc-caller@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/grpc-caller/-/grpc-caller-0.11.0.tgz#6974c126cdee66d80aeb9a2499f8fe2d91ca966f"
-  integrity sha512-8/rK6+wHlPRNU2YvQtecQHDAiDr24rW36W9r+XmIpAetoxtqtC3ItOSAXO/xfV1Zt9ZiBTjn6srKvwWwBVrZWw==
+grpc-caller@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/grpc-caller/-/grpc-caller-0.13.0.tgz#fb301e87c5d81a8a78f7119759ab611fa1bf0071"
+  integrity sha512-EV5ADuRYraq7nreAC4IFduhVi8SN7WJMpDxp+JlbGw7v8Zi3qMDoNBIcImSfcF0ajBpf0nANrqM4LGGaRxS2wg==
   dependencies:
-    "@grpc/proto-loader" "^0.3.0"
-    async "^2.6.1"
+    "@grpc/proto-loader" "^0.5.0"
+    async "^3.1.0"
     call-me-maybe "^1.0.1"
     grpc-create-metadata "^3.0.0"
     grpc-inspect "^0.6.0"
-    lodash "^4.17.11"
+    lodash "^4.17.14"
     promisify-call "^2.0.0"
 
 grpc-create-metadata@^3.0.0:
@@ -740,10 +726,10 @@ grpc-inspect@^0.6.0:
     lodash "^4.17.11"
     traverse "^0.6.6"
 
-grpc@^1.20.3:
-  version "1.20.3"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.20.3.tgz#a74d36718f1e89c4a64f2fb9441199c3c8f78978"
-  integrity sha512-GsEsi0NVj6usS/xor8pF/xDbDiwZQR59aZl5NUZ59Sy2bdPQFZ3UePr5wevZjHboirRCIQCKRI1cCgvSWUe2ag==
+grpc@^1.22.2:
+  version "1.22.2"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.22.2.tgz#1a60c728c692a93a85e855e35c2e0216654f0198"
+  integrity sha512-gaK59oAA5/mlOIn+hQO5JROPoAzsaGRpEMcrAayW5WGETS8QScpBoQ+XBxEWAAF0kbeGIELuGRCVEObKS1SLmw==
   dependencies:
     lodash.camelcase "^4.3.0"
     lodash.clone "^4.5.0"
@@ -979,10 +965,15 @@ lodash.forown@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.forown/-/lodash.forown-4.4.0.tgz#85115cf04f73ef966eced52511d3893cc46683af"
   integrity sha1-hRFc8E9z75ZuztUlEdOJPMRmg68=
 
-lodash@^4.17.11, lodash@^4.17.5:
+lodash@^4.17.11:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+lodash@^4.17.14:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 long@^4.0.0:
   version "4.0.0"
