@@ -72,6 +72,19 @@ export declare interface TransactionID {
   accountID: AccountID | string,
 }
 
+export declare interface TransferTransaction {
+  transactionID: TransactionID,
+  nodeAccountID: AccountID,
+  transactionFee: number,
+  transactionValidDuration: Duration,
+  memo: string,
+  cryptoTransfer: { transferList: TransferList }
+}
+
+export declare interface TransferList {
+  accountAmounts: { accountID: string, amount: string }[]
+}
+
 export declare interface Query {
 
 }
@@ -104,7 +117,7 @@ export declare namespace Query {
     transactionID: TransactionID,
     memo?: string,
     transactionFee: string,
-    transferList?: { accountAmounts: { accountID: string, amount: string }[] },
+    transferList?: TransferList,
   }
 
   export interface Header {
