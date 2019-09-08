@@ -68,10 +68,8 @@ export declare class AccountID {
 }
 
 export declare interface TransactionID {
-  transactionValidStart: {
-    seconds: string,
-  }
-  accountID: AccountID | string,
+  transactionValidStart: Duration
+  accountID: AccountID,
 }
 
 export declare interface TransferTransaction {
