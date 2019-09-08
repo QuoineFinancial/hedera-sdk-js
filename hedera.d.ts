@@ -23,6 +23,8 @@ export declare namespace util {
   function getTransactionId(transaction: {}): TransactionID;
   function getTransfers(transaction: {}): { accountId: string, amount: string }[];
   function getRecordTransfers(record: {}): { accountId: string, amount: string }[];
+  function deserializeTx(hex: string): Promise<Transaction>
+  function serializeAccountID(accountId: AccountID): string
 }
 
 export declare interface Duration {
@@ -38,7 +40,7 @@ export declare class Hedera {
 
   constructor(nodeUrl: string, nodeAccountId: string, operatorId: string, operatorPrivateKey: string)
 
-  broadcast(requestName: string, tx: {}): Promise<string | {}>
+  static broadcast(requestName: string, nodeUrl: string, tx: {}): Promise<string | {}>
   createAccount(newAccountPublicKey: string, initialBalance: string): Promise<Query.Receipt>
   cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<Query.Record>
   cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
