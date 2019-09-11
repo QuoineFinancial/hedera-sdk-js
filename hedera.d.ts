@@ -33,9 +33,9 @@ export declare interface Duration {
   nanos?: string,
 }
 
-export declare class Duration {
-  now(): Duration;
-  seconds(s: number): Duration;
+export declare namespace Duration {
+  function now(): Duration;
+  function seconds(s: number): Duration;
 }
 
 export declare class Hedera {
