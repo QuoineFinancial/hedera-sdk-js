@@ -1,5 +1,6 @@
 const Hedera = require('./lib/hedera');
 const AccountID = require('./lib/accountId');
+const Duration = require('./lib/duration');
 const CryptoGetAccountBalance = require('./lib/cryptoGetAccountBalance');
 const CryptoGetAccountRecords = require('./lib/cryptoGetAccountRecords');
 const CryptoTransfer = require('./lib/cryptoTransfer');
@@ -12,6 +13,7 @@ const util = require('./lib/util');
 
 module.exports = {
   Hedera,
+  Duration,
   AccountID,
   CryptoGetAccountBalance,
   CryptoGetAccountRecords,

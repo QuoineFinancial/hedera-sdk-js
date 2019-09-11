@@ -2,6 +2,7 @@ import { stringify } from "querystring";
 
 declare const _default: {
   Hedera: Hedera,
+  Duration: Duration,
   Query: Query,
   CryptoGetAccountBalance: CryptoGetAccountBalance,
   CryptoGetAccountRecords: CryptoGetAccountRecords,
@@ -30,6 +31,11 @@ export declare namespace util {
 export declare interface Duration {
   seconds: number,
   nanos?: string,
+}
+
+export declare class Duration {
+  now(): Duration;
+  seconds(s: number): Duration;
 }
 
 export declare class Hedera {
