@@ -29,8 +29,8 @@ export declare namespace util {
 }
 
 export declare interface Duration {
-  seconds: number,
-  nanos?: string,
+  seconds: number | Long,
+  nanos?: string | Long,
 }
 
 export declare namespace Duration {
