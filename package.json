@@ -1,6 +1,6 @@
 {
   "name": "hedera-sdk-js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Hedera js sdk",
   "main": "index.js",
   "scripts": {
