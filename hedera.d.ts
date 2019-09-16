@@ -44,11 +44,17 @@ export declare class Hedera {
   operatorId: AccountID;
   cryptoService: any;
 
-  constructor(nodeUrl: string, nodeAccountId: string, operatorId: string, operatorPrivateKey: string)
+  constructor(
+    nodeUrl: string,
+    nodeAccountId: string,
+    operatorId: string,
+    operatorPublicKey: string,
+    operatorPrivateKey: string,
+  )
 
   static broadcast(requestName: string, nodeUrl: string, tx: {}): Promise<string | {}>
-  createAccount(newAccountPublicKey: string, initialBalance: string): Promise<Query.Receipt>
-  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<Query.Record>
+  createAccount(newAccountPublicKey: string, initialBalance: string): Promise<string>
+  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<string>
   cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
   getAccountRecords(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, records: Query.Record[] }>
   getAccountInfo(queryAccountId: string): Promise<{}>
@@ -225,6 +231,7 @@ export declare class TransactionID {
   constructor(obj: { accountID: AccountID | string, transactionValidStart: { seconds: string | number | Long } });
 
   toObject(): { accountID: string, transactionValidStart: Duration };
+  static parseString(transactionIdStr: string): TransactionID
   static serialize(transactionId: TransactionID): Promise<string>;
   static deserialize(hex: string): Promise<TransactionID>;
 }
