@@ -24,7 +24,7 @@ export declare namespace util {
   function getTransactionId(transaction: {}): TransactionID;
   function getTransfers(transaction: {}): { accountId: string, amount: string }[];
   function getRecordTransfers(record: {}): { accountId: string, amount: string }[];
-  function deserializeTx(hex: string): Promise<Transaction>
+  function deserializeTx(hex: string): Transaction
   function serializeAccountID(accountId: AccountID): string
 }
 
