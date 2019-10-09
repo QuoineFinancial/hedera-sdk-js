@@ -52,9 +52,19 @@ export declare class Hedera {
     operatorPrivateKey: string,
   )
 
+  constructor(options: {
+    nodeUrl: string,
+    nodeAccountId: string,
+    operatorId: string,
+    derPublicKey?: string,
+    derPrivateKey?: string,
+    operatorPublicKey?: string,
+    operatorPrivateKey?: string,
+  });
+
   static broadcast(requestName: string, nodeUrl: string, tx: {}): Promise<string | {}>
   createAccount(newAccountPublicKey: string, initialBalance: string): Promise<string>
-  cryptoTransfer(destinations: { accountId: string, amount: string }[]): Promise<string>
+  cryptoTransfer(destinations: { accountId: string, amount: string }[], memo: string): Promise<string>
   cryptoGetBalance(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, balance: string }>
   getAccountRecords(queryAccountId: string): Promise<{ header: Query.Header, accountID: AccountID, records: Query.Record[] }>
   getAccountInfo(queryAccountId: string): Promise<{}>
@@ -147,15 +157,21 @@ export declare class Query {
   toObject(): {};
 }
 
+export declare interface Transaction {
+  body: {},
+  sigMap: {},
+}
+
 export declare class Transaction {
   constructor(options: { operatorId: AccountID | string, nodeAccountId: AccountID | string});
 
-  addSignature(signature: string | Buffer): Transaction;
-  serialize(): Promise<string>;
-  static deserialize(hex: string): Promise<{}>;
-  toObject(): {};
+  addSignature(signature: string | Buffer, publicKey: string): Transaction;
+  serialize(): string;
+  static deserialize(hex: string): Transaction;
+  static serializeBody(tx: any): Buffer;
+  toObject(): Transaction;
   getTransactionId(): TransactionID;
-  signTransaction(privateKey: string): Promise<Transaction>;
+  signTransaction(privateKey: string): Transaction;
 }
 
 export declare class CryptoGetAccountBalance extends Query {
