@@ -25,3 +25,5 @@ jobs:
     # Auto create tag when push to master
     - name: Autotagger
       uses: ButlerLogic/action-autotag@1.0.2
+      with:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
