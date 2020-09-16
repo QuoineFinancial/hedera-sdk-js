@@ -1218,10 +1218,10 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-node-forge@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.8.3.tgz#c714c51d9f95b13fee8039bf78da3195efef5b64"
-  integrity sha512-5lv9UKmvTBog+m4AWL8XpZnr3WbNKxYL2M77i903ylY/huJIooSTDHyUWQ/OppFuKQpAGMk6qNtDymSJNRIEIg==
+node-forge@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.10.0.tgz#32dea2afb3e9926f02ee5ce8794902691a676bf3"
+  integrity sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==
 
 node-pre-gyp@^0.13.0:
   version "0.13.0"
