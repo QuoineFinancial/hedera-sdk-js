@@ -1,6 +1,10 @@
 {
   "name": "hedera-sdk-js",
+<<<<<<< HEAD
   "version": "0.4.0",
+=======
+  "version": "0.3.4",
+>>>>>>> master
   "description": "Hedera js sdk",
   "main": "index.js",
   "scripts": {
@@ -31,7 +35,8 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "lodash": "^4.17.20"
   },
   "types": "hedera.d.ts"
 }
