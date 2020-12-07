@@ -2,6 +2,26 @@ syntax = "proto3";
 
 package proto;
 
+/*-
+ * ‌
+ * Hedera Network Services Protobuf
+ * ​
+ * Copyright (C) 2018 - 2020 Hedera Hashgraph, LLC
+ * ​
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ‍
+ */
+
 option java_package = "com.hederahashgraph.api.proto.java";
 option java_multiple_files = true;
 
@@ -29,6 +49,7 @@ message ContractGetInfoResponse {
         Duration autoRenewPeriod = 6; // the expiration time will extend every this many seconds. If there are insufficient funds, then it extends as long as possible. If the account is empty when it expires, then it is deleted.
         int64 storage = 7; // number of bytes of storage being used by this instance (which affects the cost to extend the expiration time)
         string memo = 8; // the memo associated with the contract (max 100 bytes)
+        uint64 balance = 9; // The current balance, in tinybars
     }
 
     ContractInfo contractInfo = 2; // the information about this contract instance (a state proof can be generated for this)

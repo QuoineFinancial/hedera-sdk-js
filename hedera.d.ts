@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 declare const _default: {
   Hedera: Hedera,
   Duration: Duration,
@@ -45,22 +43,20 @@ export declare class Hedera {
   cryptoService: any;
 
   constructor(
-    nodeUrl: string,
+    nodeUrl: string | {
+      nodeUrl: string,
+      nodeAccountId: string,
+      operatorId: string,
+      derPublicKey?: string,
+      derPrivateKey?: string,
+      operatorPublicKey?: string,
+      operatorPrivateKey?: string,
+    },
     nodeAccountId: string,
     operatorId: string,
     operatorPublicKey: string,
     operatorPrivateKey: string,
   )
-
-  constructor(options: {
-    nodeUrl: string,
-    nodeAccountId: string,
-    operatorId: string,
-    derPublicKey?: string,
-    derPrivateKey?: string,
-    operatorPublicKey?: string,
-    operatorPrivateKey?: string,
-  });
 
   static broadcast(requestName: string, nodeUrl: string, tx: {}): Promise<string | {}>
   createAccount(newAccountPublicKey: string, initialBalance: string): Promise<string>
