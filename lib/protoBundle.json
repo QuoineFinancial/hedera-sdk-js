@@ -1,0 +1,3489 @@
+{
+  "nested": {
+    "proto": {
+      "options": {
+        "java_package": "com.hederahashgraph.api.proto.java",
+        "java_multiple_files": true
+      },
+      "nested": {
+        "ShardID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "RealmID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "AccountID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            },
+            "accountNum": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "FileID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            },
+            "fileNum": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "ContractID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            },
+            "contractNum": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "TransactionID": {
+          "fields": {
+            "transactionValidStart": {
+              "type": "Timestamp",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "AccountAmount": {
+          "fields": {
+            "accountID": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "amount": {
+              "type": "sint64",
+              "id": 2
+            }
+          }
+        },
+        "TokenTransferList": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "transfers": {
+              "rule": "repeated",
+              "type": "AccountAmount",
+              "id": 2
+            }
+          }
+        },
+        "TopicID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            },
+            "topicNum": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "TokenID": {
+          "fields": {
+            "shardNum": {
+              "type": "int64",
+              "id": 1
+            },
+            "realmNum": {
+              "type": "int64",
+              "id": 2
+            },
+            "tokenNum": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "TokenFreezeStatus": {
+          "values": {
+            "FreezeNotApplicable": 0,
+            "Frozen": 1,
+            "Unfrozen": 2
+          }
+        },
+        "TokenKycStatus": {
+          "values": {
+            "KycNotApplicable": 0,
+            "Granted": 1,
+            "Revoked": 2
+          }
+        },
+        "Key": {
+          "oneofs": {
+            "key": {
+              "oneof": [
+                "contractID",
+                "ed25519",
+                "RSA_3072",
+                "ECDSA_384",
+                "thresholdKey",
+                "keyList"
+              ]
+            }
+          },
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "ed25519": {
+              "type": "bytes",
+              "id": 2
+            },
+            "RSA_3072": {
+              "type": "bytes",
+              "id": 3
+            },
+            "ECDSA_384": {
+              "type": "bytes",
+              "id": 4
+            },
+            "thresholdKey": {
+              "type": "ThresholdKey",
+              "id": 5
+            },
+            "keyList": {
+              "type": "KeyList",
+              "id": 6
+            }
+          }
+        },
+        "ThresholdKey": {
+          "fields": {
+            "threshold": {
+              "type": "uint32",
+              "id": 1
+            },
+            "keys": {
+              "type": "KeyList",
+              "id": 2
+            }
+          }
+        },
+        "KeyList": {
+          "fields": {
+            "keys": {
+              "rule": "repeated",
+              "type": "Key",
+              "id": 1
+            }
+          }
+        },
+        "Signature": {
+          "options": {
+            "deprecated": true
+          },
+          "oneofs": {
+            "signature": {
+              "oneof": [
+                "contract",
+                "ed25519",
+                "RSA_3072",
+                "ECDSA_384",
+                "thresholdSignature",
+                "signatureList"
+              ]
+            }
+          },
+          "fields": {
+            "contract": {
+              "type": "bytes",
+              "id": 1
+            },
+            "ed25519": {
+              "type": "bytes",
+              "id": 2
+            },
+            "RSA_3072": {
+              "type": "bytes",
+              "id": 3
+            },
+            "ECDSA_384": {
+              "type": "bytes",
+              "id": 4
+            },
+            "thresholdSignature": {
+              "type": "ThresholdSignature",
+              "id": 5
+            },
+            "signatureList": {
+              "type": "SignatureList",
+              "id": 6
+            }
+          }
+        },
+        "ThresholdSignature": {
+          "options": {
+            "deprecated": true
+          },
+          "fields": {
+            "sigs": {
+              "type": "SignatureList",
+              "id": 2
+            }
+          }
+        },
+        "SignatureList": {
+          "options": {
+            "deprecated": true
+          },
+          "fields": {
+            "sigs": {
+              "rule": "repeated",
+              "type": "Signature",
+              "id": 2
+            }
+          }
+        },
+        "SignaturePair": {
+          "oneofs": {
+            "signature": {
+              "oneof": [
+                "contract",
+                "ed25519",
+                "RSA_3072",
+                "ECDSA_384"
+              ]
+            }
+          },
+          "fields": {
+            "pubKeyPrefix": {
+              "type": "bytes",
+              "id": 1
+            },
+            "contract": {
+              "type": "bytes",
+              "id": 2
+            },
+            "ed25519": {
+              "type": "bytes",
+              "id": 3
+            },
+            "RSA_3072": {
+              "type": "bytes",
+              "id": 4
+            },
+            "ECDSA_384": {
+              "type": "bytes",
+              "id": 5
+            }
+          }
+        },
+        "SignatureMap": {
+          "fields": {
+            "sigPair": {
+              "rule": "repeated",
+              "type": "SignaturePair",
+              "id": 1
+            }
+          }
+        },
+        "HederaFunctionality": {
+          "values": {
+            "NONE": 0,
+            "CryptoTransfer": 1,
+            "CryptoUpdate": 2,
+            "CryptoDelete": 3,
+            "CryptoAddLiveHash": 4,
+            "CryptoDeleteLiveHash": 5,
+            "ContractCall": 6,
+            "ContractCreate": 7,
+            "ContractUpdate": 8,
+            "FileCreate": 9,
+            "FileAppend": 10,
+            "FileUpdate": 11,
+            "FileDelete": 12,
+            "CryptoGetAccountBalance": 13,
+            "CryptoGetAccountRecords": 14,
+            "CryptoGetInfo": 15,
+            "ContractCallLocal": 16,
+            "ContractGetInfo": 17,
+            "ContractGetBytecode": 18,
+            "GetBySolidityID": 19,
+            "GetByKey": 20,
+            "CryptoGetLiveHash": 21,
+            "CryptoGetStakers": 22,
+            "FileGetContents": 23,
+            "FileGetInfo": 24,
+            "TransactionGetRecord": 25,
+            "ContractGetRecords": 26,
+            "CryptoCreate": 27,
+            "SystemDelete": 28,
+            "SystemUndelete": 29,
+            "ContractDelete": 30,
+            "Freeze": 31,
+            "CreateTransactionRecord": 32,
+            "CryptoAccountAutoRenew": 33,
+            "ContractAutoRenew": 34,
+            "GetVersionInfo": 35,
+            "TransactionGetReceipt": 36,
+            "ConsensusCreateTopic": 50,
+            "ConsensusUpdateTopic": 51,
+            "ConsensusDeleteTopic": 52,
+            "ConsensusGetTopicInfo": 53,
+            "ConsensusSubmitMessage": 54,
+            "UncheckedSubmit": 55,
+            "TokenCreate": 56,
+            "TokenTransact": 57,
+            "TokenGetInfo": 58,
+            "TokenFreezeAccount": 59,
+            "TokenUnfreezeAccount": 60,
+            "TokenGrantKycToAccount": 61,
+            "TokenRevokeKycFromAccount": 62,
+            "TokenDelete": 63,
+            "TokenUpdate": 64,
+            "TokenMint": 65,
+            "TokenBurn": 66,
+            "TokenAccountWipe": 67,
+            "TokenAssociateToAccount": 68,
+            "TokenDissociateFromAccount": 69
+          }
+        },
+        "FeeComponents": {
+          "fields": {
+            "min": {
+              "type": "int64",
+              "id": 1
+            },
+            "max": {
+              "type": "int64",
+              "id": 2
+            },
+            "constant": {
+              "type": "int64",
+              "id": 3
+            },
+            "bpt": {
+              "type": "int64",
+              "id": 4
+            },
+            "vpt": {
+              "type": "int64",
+              "id": 5
+            },
+            "rbh": {
+              "type": "int64",
+              "id": 6
+            },
+            "sbh": {
+              "type": "int64",
+              "id": 7
+            },
+            "gas": {
+              "type": "int64",
+              "id": 8
+            },
+            "tv": {
+              "type": "int64",
+              "id": 9
+            },
+            "bpr": {
+              "type": "int64",
+              "id": 10
+            },
+            "sbpr": {
+              "type": "int64",
+              "id": 11
+            }
+          }
+        },
+        "TransactionFeeSchedule": {
+          "fields": {
+            "hederaFunctionality": {
+              "type": "HederaFunctionality",
+              "id": 1
+            },
+            "feeData": {
+              "type": "FeeData",
+              "id": 2
+            }
+          }
+        },
+        "FeeData": {
+          "fields": {
+            "nodedata": {
+              "type": "FeeComponents",
+              "id": 1
+            },
+            "networkdata": {
+              "type": "FeeComponents",
+              "id": 2
+            },
+            "servicedata": {
+              "type": "FeeComponents",
+              "id": 3
+            }
+          }
+        },
+        "FeeSchedule": {
+          "fields": {
+            "transactionFeeSchedule": {
+              "rule": "repeated",
+              "type": "TransactionFeeSchedule",
+              "id": 1
+            },
+            "expiryTime": {
+              "type": "TimestampSeconds",
+              "id": 2
+            }
+          }
+        },
+        "CurrentAndNextFeeSchedule": {
+          "fields": {
+            "currentFeeSchedule": {
+              "type": "FeeSchedule",
+              "id": 1
+            },
+            "nextFeeSchedule": {
+              "type": "FeeSchedule",
+              "id": 2
+            }
+          }
+        },
+        "NodeAddress": {
+          "fields": {
+            "ipAddress": {
+              "type": "bytes",
+              "id": 1
+            },
+            "portno": {
+              "type": "int32",
+              "id": 2
+            },
+            "memo": {
+              "type": "bytes",
+              "id": 3
+            },
+            "RSA_PubKey": {
+              "type": "string",
+              "id": 4
+            },
+            "nodeId": {
+              "type": "int64",
+              "id": 5
+            },
+            "nodeAccountId": {
+              "type": "AccountID",
+              "id": 6
+            },
+            "nodeCertHash": {
+              "type": "bytes",
+              "id": 7
+            }
+          }
+        },
+        "NodeAddressBook": {
+          "fields": {
+            "nodeAddress": {
+              "rule": "repeated",
+              "type": "NodeAddress",
+              "id": 1
+            }
+          }
+        },
+        "SemanticVersion": {
+          "fields": {
+            "major": {
+              "type": "int32",
+              "id": 1
+            },
+            "minor": {
+              "type": "int32",
+              "id": 2
+            },
+            "patch": {
+              "type": "int32",
+              "id": 3
+            }
+          }
+        },
+        "Setting": {
+          "fields": {
+            "name": {
+              "type": "string",
+              "id": 1
+            },
+            "value": {
+              "type": "string",
+              "id": 2
+            },
+            "data": {
+              "type": "bytes",
+              "id": 3
+            }
+          }
+        },
+        "ServicesConfigurationList": {
+          "fields": {
+            "nameValue": {
+              "rule": "repeated",
+              "type": "Setting",
+              "id": 1
+            }
+          }
+        },
+        "Timestamp": {
+          "fields": {
+            "seconds": {
+              "type": "int64",
+              "id": 1
+            },
+            "nanos": {
+              "type": "int32",
+              "id": 2
+            }
+          }
+        },
+        "TimestampSeconds": {
+          "fields": {
+            "seconds": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "ConsensusCreateTopicTransactionBody": {
+          "fields": {
+            "memo": {
+              "type": "string",
+              "id": 1
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 2
+            },
+            "submitKey": {
+              "type": "Key",
+              "id": 3
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 6
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 7
+            }
+          }
+        },
+        "Duration": {
+          "fields": {
+            "seconds": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "ConsensusDeleteTopicTransactionBody": {
+          "fields": {
+            "topicID": {
+              "type": "TopicID",
+              "id": 1
+            }
+          }
+        },
+        "ConsensusGetTopicInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "topicID": {
+              "type": "TopicID",
+              "id": 2
+            }
+          }
+        },
+        "ConsensusGetTopicInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "topicID": {
+              "type": "TopicID",
+              "id": 2
+            },
+            "topicInfo": {
+              "type": "ConsensusTopicInfo",
+              "id": 5
+            }
+          }
+        },
+        "ResponseType": {
+          "values": {
+            "ANSWER_ONLY": 0,
+            "ANSWER_STATE_PROOF": 1,
+            "COST_ANSWER": 2,
+            "COST_ANSWER_STATE_PROOF": 3
+          }
+        },
+        "QueryHeader": {
+          "fields": {
+            "payment": {
+              "type": "Transaction",
+              "id": 1
+            },
+            "responseType": {
+              "type": "ResponseType",
+              "id": 2
+            }
+          }
+        },
+        "Transaction": {
+          "fields": {
+            "signedTransactionBytes": {
+              "type": "bytes",
+              "id": 5
+            },
+            "bodyBytes": {
+              "type": "bytes",
+              "id": 4,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "sigMap": {
+              "type": "SignatureMap",
+              "id": 3,
+              "options": {
+                "deprecated": true
+              }
+            }
+          }
+        },
+        "TransactionBody": {
+          "oneofs": {
+            "data": {
+              "oneof": [
+                "contractCall",
+                "contractCreateInstance",
+                "contractUpdateInstance",
+                "contractDeleteInstance",
+                "cryptoAddLiveHash",
+                "cryptoCreateAccount",
+                "cryptoDelete",
+                "cryptoDeleteLiveHash",
+                "cryptoTransfer",
+                "cryptoUpdateAccount",
+                "fileAppend",
+                "fileCreate",
+                "fileDelete",
+                "fileUpdate",
+                "systemDelete",
+                "systemUndelete",
+                "freeze",
+                "consensusCreateTopic",
+                "consensusUpdateTopic",
+                "consensusDeleteTopic",
+                "consensusSubmitMessage",
+                "uncheckedSubmit",
+                "tokenCreation",
+                "tokenTransfers",
+                "tokenFreeze",
+                "tokenUnfreeze",
+                "tokenGrantKyc",
+                "tokenRevokeKyc",
+                "tokenDeletion",
+                "tokenUpdate",
+                "tokenMint",
+                "tokenBurn",
+                "tokenWipe",
+                "tokenAssociate",
+                "tokenDissociate"
+              ]
+            }
+          },
+          "fields": {
+            "transactionID": {
+              "type": "TransactionID",
+              "id": 1
+            },
+            "nodeAccountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "transactionFee": {
+              "type": "uint64",
+              "id": 3
+            },
+            "transactionValidDuration": {
+              "type": "Duration",
+              "id": 4
+            },
+            "generateRecord": {
+              "type": "bool",
+              "id": 5,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "memo": {
+              "type": "string",
+              "id": 6
+            },
+            "contractCall": {
+              "type": "ContractCallTransactionBody",
+              "id": 7
+            },
+            "contractCreateInstance": {
+              "type": "ContractCreateTransactionBody",
+              "id": 8
+            },
+            "contractUpdateInstance": {
+              "type": "ContractUpdateTransactionBody",
+              "id": 9
+            },
+            "contractDeleteInstance": {
+              "type": "ContractDeleteTransactionBody",
+              "id": 22
+            },
+            "cryptoAddLiveHash": {
+              "type": "CryptoAddLiveHashTransactionBody",
+              "id": 10
+            },
+            "cryptoCreateAccount": {
+              "type": "CryptoCreateTransactionBody",
+              "id": 11
+            },
+            "cryptoDelete": {
+              "type": "CryptoDeleteTransactionBody",
+              "id": 12
+            },
+            "cryptoDeleteLiveHash": {
+              "type": "CryptoDeleteLiveHashTransactionBody",
+              "id": 13
+            },
+            "cryptoTransfer": {
+              "type": "CryptoTransferTransactionBody",
+              "id": 14
+            },
+            "cryptoUpdateAccount": {
+              "type": "CryptoUpdateTransactionBody",
+              "id": 15
+            },
+            "fileAppend": {
+              "type": "FileAppendTransactionBody",
+              "id": 16
+            },
+            "fileCreate": {
+              "type": "FileCreateTransactionBody",
+              "id": 17
+            },
+            "fileDelete": {
+              "type": "FileDeleteTransactionBody",
+              "id": 18
+            },
+            "fileUpdate": {
+              "type": "FileUpdateTransactionBody",
+              "id": 19
+            },
+            "systemDelete": {
+              "type": "SystemDeleteTransactionBody",
+              "id": 20
+            },
+            "systemUndelete": {
+              "type": "SystemUndeleteTransactionBody",
+              "id": 21
+            },
+            "freeze": {
+              "type": "FreezeTransactionBody",
+              "id": 23
+            },
+            "consensusCreateTopic": {
+              "type": "ConsensusCreateTopicTransactionBody",
+              "id": 24
+            },
+            "consensusUpdateTopic": {
+              "type": "ConsensusUpdateTopicTransactionBody",
+              "id": 25
+            },
+            "consensusDeleteTopic": {
+              "type": "ConsensusDeleteTopicTransactionBody",
+              "id": 26
+            },
+            "consensusSubmitMessage": {
+              "type": "ConsensusSubmitMessageTransactionBody",
+              "id": 27
+            },
+            "uncheckedSubmit": {
+              "type": "UncheckedSubmitBody",
+              "id": 28
+            },
+            "tokenCreation": {
+              "type": "TokenCreateTransactionBody",
+              "id": 29
+            },
+            "tokenTransfers": {
+              "type": "TokenTransfersTransactionBody",
+              "id": 30
+            },
+            "tokenFreeze": {
+              "type": "TokenFreezeAccountTransactionBody",
+              "id": 31
+            },
+            "tokenUnfreeze": {
+              "type": "TokenUnfreezeAccountTransactionBody",
+              "id": 32
+            },
+            "tokenGrantKyc": {
+              "type": "TokenGrantKycTransactionBody",
+              "id": 33
+            },
+            "tokenRevokeKyc": {
+              "type": "TokenRevokeKycTransactionBody",
+              "id": 34
+            },
+            "tokenDeletion": {
+              "type": "TokenDeleteTransactionBody",
+              "id": 35
+            },
+            "tokenUpdate": {
+              "type": "TokenUpdateTransactionBody",
+              "id": 36
+            },
+            "tokenMint": {
+              "type": "TokenMintTransactionBody",
+              "id": 37
+            },
+            "tokenBurn": {
+              "type": "TokenBurnTransactionBody",
+              "id": 38
+            },
+            "tokenWipe": {
+              "type": "TokenWipeAccountTransactionBody",
+              "id": 39
+            },
+            "tokenAssociate": {
+              "type": "TokenAssociateTransactionBody",
+              "id": 40
+            },
+            "tokenDissociate": {
+              "type": "TokenDissociateTransactionBody",
+              "id": 41
+            }
+          }
+        },
+        "SystemDeleteTransactionBody": {
+          "oneofs": {
+            "id": {
+              "oneof": [
+                "fileID",
+                "contractID"
+              ]
+            }
+          },
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            },
+            "expirationTime": {
+              "type": "TimestampSeconds",
+              "id": 3
+            }
+          }
+        },
+        "SystemUndeleteTransactionBody": {
+          "oneofs": {
+            "id": {
+              "oneof": [
+                "fileID",
+                "contractID"
+              ]
+            }
+          },
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            }
+          }
+        },
+        "FreezeTransactionBody": {
+          "fields": {
+            "startHour": {
+              "type": "int32",
+              "id": 1
+            },
+            "startMin": {
+              "type": "int32",
+              "id": 2
+            },
+            "endHour": {
+              "type": "int32",
+              "id": 3
+            },
+            "endMin": {
+              "type": "int32",
+              "id": 4
+            },
+            "updateFile": {
+              "type": "FileID",
+              "id": 5
+            }
+          }
+        },
+        "ContractCallTransactionBody": {
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "gas": {
+              "type": "int64",
+              "id": 2
+            },
+            "amount": {
+              "type": "int64",
+              "id": 3
+            },
+            "functionParameters": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "ContractCreateTransactionBody": {
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 1
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 3
+            },
+            "gas": {
+              "type": "int64",
+              "id": 4
+            },
+            "initialBalance": {
+              "type": "int64",
+              "id": 5
+            },
+            "proxyAccountID": {
+              "type": "AccountID",
+              "id": 6
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 8
+            },
+            "constructorParameters": {
+              "type": "bytes",
+              "id": 9
+            },
+            "shardID": {
+              "type": "ShardID",
+              "id": 10
+            },
+            "realmID": {
+              "type": "RealmID",
+              "id": 11
+            },
+            "newRealmAdminKey": {
+              "type": "Key",
+              "id": 12
+            },
+            "memo": {
+              "type": "string",
+              "id": 13
+            }
+          }
+        },
+        "ContractUpdateTransactionBody": {
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 2
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 3
+            },
+            "proxyAccountID": {
+              "type": "AccountID",
+              "id": 6
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 7
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 8
+            },
+            "memo": {
+              "type": "string",
+              "id": 9
+            }
+          }
+        },
+        "LiveHash": {
+          "fields": {
+            "accountId": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 2
+            },
+            "keys": {
+              "type": "KeyList",
+              "id": 3
+            },
+            "duration": {
+              "type": "Duration",
+              "id": 5
+            }
+          }
+        },
+        "CryptoAddLiveHashTransactionBody": {
+          "fields": {
+            "liveHash": {
+              "type": "LiveHash",
+              "id": 3
+            }
+          }
+        },
+        "CryptoCreateTransactionBody": {
+          "fields": {
+            "key": {
+              "type": "Key",
+              "id": 1
+            },
+            "initialBalance": {
+              "type": "uint64",
+              "id": 2
+            },
+            "proxyAccountID": {
+              "type": "AccountID",
+              "id": 3
+            },
+            "sendRecordThreshold": {
+              "type": "uint64",
+              "id": 6,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "receiveRecordThreshold": {
+              "type": "uint64",
+              "id": 7,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "receiverSigRequired": {
+              "type": "bool",
+              "id": 8
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 9
+            },
+            "shardID": {
+              "type": "ShardID",
+              "id": 10
+            },
+            "realmID": {
+              "type": "RealmID",
+              "id": 11
+            },
+            "newRealmAdminKey": {
+              "type": "Key",
+              "id": 12
+            }
+          }
+        },
+        "CryptoDeleteTransactionBody": {
+          "fields": {
+            "transferAccountID": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "deleteAccountID": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "CryptoDeleteLiveHashTransactionBody": {
+          "fields": {
+            "accountOfLiveHash": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "liveHashToDelete": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "TransferList": {
+          "fields": {
+            "accountAmounts": {
+              "rule": "repeated",
+              "type": "AccountAmount",
+              "id": 1
+            }
+          }
+        },
+        "CryptoTransferTransactionBody": {
+          "fields": {
+            "transfers": {
+              "type": "TransferList",
+              "id": 1
+            }
+          }
+        },
+        "CryptoUpdateTransactionBody": {
+          "oneofs": {
+            "sendRecordThresholdField": {
+              "oneof": [
+                "sendRecordThreshold",
+                "sendRecordThresholdWrapper"
+              ]
+            },
+            "receiveRecordThresholdField": {
+              "oneof": [
+                "receiveRecordThreshold",
+                "receiveRecordThresholdWrapper"
+              ]
+            },
+            "receiverSigRequiredField": {
+              "oneof": [
+                "receiverSigRequired",
+                "receiverSigRequiredWrapper"
+              ]
+            }
+          },
+          "fields": {
+            "accountIDToUpdate": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "key": {
+              "type": "Key",
+              "id": 3
+            },
+            "proxyAccountID": {
+              "type": "AccountID",
+              "id": 4
+            },
+            "proxyFraction": {
+              "type": "int32",
+              "id": 5,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "sendRecordThreshold": {
+              "type": "uint64",
+              "id": 6,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "sendRecordThresholdWrapper": {
+              "type": "google.protobuf.UInt64Value",
+              "id": 11,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "receiveRecordThreshold": {
+              "type": "uint64",
+              "id": 7,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "receiveRecordThresholdWrapper": {
+              "type": "google.protobuf.UInt64Value",
+              "id": 12,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 8
+            },
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 9
+            },
+            "receiverSigRequired": {
+              "type": "bool",
+              "id": 10,
+              "options": {
+                "deprecated": true
+              }
+            },
+            "receiverSigRequiredWrapper": {
+              "type": "google.protobuf.BoolValue",
+              "id": 13
+            }
+          }
+        },
+        "FileAppendTransactionBody": {
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 2
+            },
+            "contents": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "FileCreateTransactionBody": {
+          "fields": {
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 2
+            },
+            "keys": {
+              "type": "KeyList",
+              "id": 3
+            },
+            "contents": {
+              "type": "bytes",
+              "id": 4
+            },
+            "shardID": {
+              "type": "ShardID",
+              "id": 5
+            },
+            "realmID": {
+              "type": "RealmID",
+              "id": 6
+            },
+            "newRealmAdminKey": {
+              "type": "Key",
+              "id": 7
+            }
+          }
+        },
+        "FileDeleteTransactionBody": {
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 2
+            }
+          }
+        },
+        "FileUpdateTransactionBody": {
+          "fields": {
+            "fileID": {
+              "type": "FileID",
+              "id": 1
+            },
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 2
+            },
+            "keys": {
+              "type": "KeyList",
+              "id": 3
+            },
+            "contents": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "ContractDeleteTransactionBody": {
+          "oneofs": {
+            "obtainers": {
+              "oneof": [
+                "transferAccountID",
+                "transferContractID"
+              ]
+            }
+          },
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "transferAccountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "transferContractID": {
+              "type": "ContractID",
+              "id": 3
+            }
+          }
+        },
+        "ConsensusUpdateTopicTransactionBody": {
+          "fields": {
+            "topicID": {
+              "type": "TopicID",
+              "id": 1
+            },
+            "memo": {
+              "type": "google.protobuf.StringValue",
+              "id": 2
+            },
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 4
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 6
+            },
+            "submitKey": {
+              "type": "Key",
+              "id": 7
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 8
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 9
+            }
+          }
+        },
+        "ConsensusMessageChunkInfo": {
+          "fields": {
+            "initialTransactionID": {
+              "type": "TransactionID",
+              "id": 1
+            },
+            "total": {
+              "type": "int32",
+              "id": 2
+            },
+            "number": {
+              "type": "int32",
+              "id": 3
+            }
+          }
+        },
+        "ConsensusSubmitMessageTransactionBody": {
+          "fields": {
+            "topicID": {
+              "type": "TopicID",
+              "id": 1
+            },
+            "message": {
+              "type": "bytes",
+              "id": 2
+            },
+            "chunkInfo": {
+              "type": "ConsensusMessageChunkInfo",
+              "id": 3
+            }
+          }
+        },
+        "UncheckedSubmitBody": {
+          "fields": {
+            "transactionBytes": {
+              "type": "bytes",
+              "id": 1
+            }
+          }
+        },
+        "TokenCreateTransactionBody": {
+          "fields": {
+            "name": {
+              "type": "string",
+              "id": 1
+            },
+            "symbol": {
+              "type": "string",
+              "id": 2
+            },
+            "decimals": {
+              "type": "uint32",
+              "id": 3
+            },
+            "initialSupply": {
+              "type": "uint64",
+              "id": 4
+            },
+            "treasury": {
+              "type": "AccountID",
+              "id": 5
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 6
+            },
+            "kycKey": {
+              "type": "Key",
+              "id": 7
+            },
+            "freezeKey": {
+              "type": "Key",
+              "id": 8
+            },
+            "wipeKey": {
+              "type": "Key",
+              "id": 9
+            },
+            "supplyKey": {
+              "type": "Key",
+              "id": 10
+            },
+            "freezeDefault": {
+              "type": "bool",
+              "id": 11
+            },
+            "expiry": {
+              "type": "uint64",
+              "id": 13
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 14
+            },
+            "autoRenewPeriod": {
+              "type": "uint64",
+              "id": 15
+            }
+          }
+        },
+        "TokenTransfersTransactionBody": {
+          "fields": {
+            "tokenTransfers": {
+              "rule": "repeated",
+              "type": "TokenTransferList",
+              "id": 1
+            }
+          }
+        },
+        "TokenFreezeAccountTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "account": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "TokenUnfreezeAccountTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "account": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "TokenGrantKycTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "account": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "TokenRevokeKycTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "account": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "TokenDeleteTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            }
+          }
+        },
+        "TokenUpdateTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "symbol": {
+              "type": "string",
+              "id": 2
+            },
+            "name": {
+              "type": "string",
+              "id": 3
+            },
+            "treasury": {
+              "type": "AccountID",
+              "id": 4
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 5
+            },
+            "kycKey": {
+              "type": "Key",
+              "id": 6
+            },
+            "freezeKey": {
+              "type": "Key",
+              "id": 7
+            },
+            "wipeKey": {
+              "type": "Key",
+              "id": 8
+            },
+            "supplyKey": {
+              "type": "Key",
+              "id": 9
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 10
+            },
+            "autoRenewPeriod": {
+              "type": "uint64",
+              "id": 11
+            },
+            "expiry": {
+              "type": "uint64",
+              "id": 12
+            }
+          }
+        },
+        "TokenMintTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "amount": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "TokenBurnTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "amount": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "TokenWipeAccountTransactionBody": {
+          "fields": {
+            "token": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "account": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "amount": {
+              "type": "uint64",
+              "id": 3
+            }
+          }
+        },
+        "TokenAssociateTransactionBody": {
+          "fields": {
+            "account": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "tokens": {
+              "rule": "repeated",
+              "type": "TokenID",
+              "id": 2
+            }
+          }
+        },
+        "TokenDissociateTransactionBody": {
+          "fields": {
+            "account": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "tokens": {
+              "rule": "repeated",
+              "type": "TokenID",
+              "id": 2
+            }
+          }
+        },
+        "ResponseHeader": {
+          "fields": {
+            "nodeTransactionPrecheckCode": {
+              "type": "ResponseCodeEnum",
+              "id": 1
+            },
+            "responseType": {
+              "type": "ResponseType",
+              "id": 2
+            },
+            "cost": {
+              "type": "uint64",
+              "id": 3
+            },
+            "stateProof": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "TransactionResponse": {
+          "fields": {
+            "nodeTransactionPrecheckCode": {
+              "type": "ResponseCodeEnum",
+              "id": 1
+            },
+            "cost": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "ResponseCodeEnum": {
+          "values": {
+            "OK": 0,
+            "INVALID_TRANSACTION": 1,
+            "PAYER_ACCOUNT_NOT_FOUND": 2,
+            "INVALID_NODE_ACCOUNT": 3,
+            "TRANSACTION_EXPIRED": 4,
+            "INVALID_TRANSACTION_START": 5,
+            "INVALID_TRANSACTION_DURATION": 6,
+            "INVALID_SIGNATURE": 7,
+            "MEMO_TOO_LONG": 8,
+            "INSUFFICIENT_TX_FEE": 9,
+            "INSUFFICIENT_PAYER_BALANCE": 10,
+            "DUPLICATE_TRANSACTION": 11,
+            "BUSY": 12,
+            "NOT_SUPPORTED": 13,
+            "INVALID_FILE_ID": 14,
+            "INVALID_ACCOUNT_ID": 15,
+            "INVALID_CONTRACT_ID": 16,
+            "INVALID_TRANSACTION_ID": 17,
+            "RECEIPT_NOT_FOUND": 18,
+            "RECORD_NOT_FOUND": 19,
+            "INVALID_SOLIDITY_ID": 20,
+            "UNKNOWN": 21,
+            "SUCCESS": 22,
+            "FAIL_INVALID": 23,
+            "FAIL_FEE": 24,
+            "FAIL_BALANCE": 25,
+            "KEY_REQUIRED": 26,
+            "BAD_ENCODING": 27,
+            "INSUFFICIENT_ACCOUNT_BALANCE": 28,
+            "INVALID_SOLIDITY_ADDRESS": 29,
+            "INSUFFICIENT_GAS": 30,
+            "CONTRACT_SIZE_LIMIT_EXCEEDED": 31,
+            "LOCAL_CALL_MODIFICATION_EXCEPTION": 32,
+            "CONTRACT_REVERT_EXECUTED": 33,
+            "CONTRACT_EXECUTION_EXCEPTION": 34,
+            "INVALID_RECEIVING_NODE_ACCOUNT": 35,
+            "MISSING_QUERY_HEADER": 36,
+            "ACCOUNT_UPDATE_FAILED": 37,
+            "INVALID_KEY_ENCODING": 38,
+            "NULL_SOLIDITY_ADDRESS": 39,
+            "CONTRACT_UPDATE_FAILED": 40,
+            "INVALID_QUERY_HEADER": 41,
+            "INVALID_FEE_SUBMITTED": 42,
+            "INVALID_PAYER_SIGNATURE": 43,
+            "KEY_NOT_PROVIDED": 44,
+            "INVALID_EXPIRATION_TIME": 45,
+            "NO_WACL_KEY": 46,
+            "FILE_CONTENT_EMPTY": 47,
+            "INVALID_ACCOUNT_AMOUNTS": 48,
+            "EMPTY_TRANSACTION_BODY": 49,
+            "INVALID_TRANSACTION_BODY": 50,
+            "INVALID_SIGNATURE_TYPE_MISMATCHING_KEY": 51,
+            "INVALID_SIGNATURE_COUNT_MISMATCHING_KEY": 52,
+            "EMPTY_LIVE_HASH_BODY": 53,
+            "EMPTY_LIVE_HASH": 54,
+            "EMPTY_LIVE_HASH_KEYS": 55,
+            "INVALID_LIVE_HASH_SIZE": 56,
+            "EMPTY_QUERY_BODY": 57,
+            "EMPTY_LIVE_HASH_QUERY": 58,
+            "LIVE_HASH_NOT_FOUND": 59,
+            "ACCOUNT_ID_DOES_NOT_EXIST": 60,
+            "LIVE_HASH_ALREADY_EXISTS": 61,
+            "INVALID_FILE_WACL": 62,
+            "SERIALIZATION_FAILED": 63,
+            "TRANSACTION_OVERSIZE": 64,
+            "TRANSACTION_TOO_MANY_LAYERS": 65,
+            "CONTRACT_DELETED": 66,
+            "PLATFORM_NOT_ACTIVE": 67,
+            "KEY_PREFIX_MISMATCH": 68,
+            "PLATFORM_TRANSACTION_NOT_CREATED": 69,
+            "INVALID_RENEWAL_PERIOD": 70,
+            "INVALID_PAYER_ACCOUNT_ID": 71,
+            "ACCOUNT_DELETED": 72,
+            "FILE_DELETED": 73,
+            "ACCOUNT_REPEATED_IN_ACCOUNT_AMOUNTS": 74,
+            "SETTING_NEGATIVE_ACCOUNT_BALANCE": 75,
+            "OBTAINER_REQUIRED": 76,
+            "OBTAINER_SAME_CONTRACT_ID": 77,
+            "OBTAINER_DOES_NOT_EXIST": 78,
+            "MODIFYING_IMMUTABLE_CONTRACT": 79,
+            "FILE_SYSTEM_EXCEPTION": 80,
+            "AUTORENEW_DURATION_NOT_IN_RANGE": 81,
+            "ERROR_DECODING_BYTESTRING": 82,
+            "CONTRACT_FILE_EMPTY": 83,
+            "CONTRACT_BYTECODE_EMPTY": 84,
+            "INVALID_INITIAL_BALANCE": 85,
+            "INVALID_RECEIVE_RECORD_THRESHOLD": 86,
+            "INVALID_SEND_RECORD_THRESHOLD": 87,
+            "ACCOUNT_IS_NOT_GENESIS_ACCOUNT": 88,
+            "PAYER_ACCOUNT_UNAUTHORIZED": 89,
+            "INVALID_FREEZE_TRANSACTION_BODY": 90,
+            "FREEZE_TRANSACTION_BODY_NOT_FOUND": 91,
+            "TRANSFER_LIST_SIZE_LIMIT_EXCEEDED": 92,
+            "RESULT_SIZE_LIMIT_EXCEEDED": 93,
+            "NOT_SPECIAL_ACCOUNT": 94,
+            "CONTRACT_NEGATIVE_GAS": 95,
+            "CONTRACT_NEGATIVE_VALUE": 96,
+            "INVALID_FEE_FILE": 97,
+            "INVALID_EXCHANGE_RATE_FILE": 98,
+            "INSUFFICIENT_LOCAL_CALL_GAS": 99,
+            "ENTITY_NOT_ALLOWED_TO_DELETE": 100,
+            "AUTHORIZATION_FAILED": 101,
+            "FILE_UPLOADED_PROTO_INVALID": 102,
+            "FILE_UPLOADED_PROTO_NOT_SAVED_TO_DISK": 103,
+            "FEE_SCHEDULE_FILE_PART_UPLOADED": 104,
+            "EXCHANGE_RATE_CHANGE_LIMIT_EXCEEDED": 105,
+            "MAX_CONTRACT_STORAGE_EXCEEDED": 106,
+            "TRANSFER_ACCOUNT_SAME_AS_DELETE_ACCOUNT": 107,
+            "TOTAL_LEDGER_BALANCE_INVALID": 108,
+            "EXPIRATION_REDUCTION_NOT_ALLOWED": 110,
+            "MAX_GAS_LIMIT_EXCEEDED": 111,
+            "MAX_FILE_SIZE_EXCEEDED": 112,
+            "INVALID_TOPIC_ID": 150,
+            "INVALID_ADMIN_KEY": 155,
+            "INVALID_SUBMIT_KEY": 156,
+            "UNAUTHORIZED": 157,
+            "INVALID_TOPIC_MESSAGE": 158,
+            "INVALID_AUTORENEW_ACCOUNT": 159,
+            "AUTORENEW_ACCOUNT_NOT_ALLOWED": 160,
+            "TOPIC_EXPIRED": 162,
+            "INVALID_CHUNK_NUMBER": 163,
+            "INVALID_CHUNK_TRANSACTION_ID": 164,
+            "ACCOUNT_FROZEN_FOR_TOKEN": 165,
+            "TOKENS_PER_ACCOUNT_LIMIT_EXCEEDED": 166,
+            "INVALID_TOKEN_ID": 167,
+            "INVALID_TOKEN_DECIMALS": 168,
+            "INVALID_TOKEN_INITIAL_SUPPLY": 169,
+            "INVALID_TREASURY_ACCOUNT_FOR_TOKEN": 170,
+            "INVALID_TOKEN_SYMBOL": 171,
+            "TOKEN_HAS_NO_FREEZE_KEY": 172,
+            "TRANSFERS_NOT_ZERO_SUM_FOR_TOKEN": 173,
+            "MISSING_TOKEN_SYMBOL": 174,
+            "TOKEN_SYMBOL_TOO_LONG": 175,
+            "ACCOUNT_KYC_NOT_GRANTED_FOR_TOKEN": 176,
+            "TOKEN_HAS_NO_KYC_KEY": 177,
+            "INSUFFICIENT_TOKEN_BALANCE": 178,
+            "TOKEN_WAS_DELETED": 179,
+            "TOKEN_HAS_NO_SUPPLY_KEY": 180,
+            "TOKEN_HAS_NO_WIPE_KEY": 181,
+            "INVALID_TOKEN_MINT_AMOUNT": 182,
+            "INVALID_TOKEN_BURN_AMOUNT": 183,
+            "TOKEN_NOT_ASSOCIATED_TO_ACCOUNT": 184,
+            "CANNOT_WIPE_TOKEN_TREASURY_ACCOUNT": 185,
+            "INVALID_KYC_KEY": 186,
+            "INVALID_WIPE_KEY": 187,
+            "INVALID_FREEZE_KEY": 188,
+            "INVALID_SUPPLY_KEY": 189,
+            "MISSING_TOKEN_NAME": 190,
+            "TOKEN_NAME_TOO_LONG": 191,
+            "INVALID_WIPING_AMOUNT": 192,
+            "TOKEN_IS_IMMUTABLE": 193,
+            "TOKEN_ALREADY_ASSOCIATED_TO_ACCOUNT": 194,
+            "TRANSACTION_REQUIRES_ZERO_TOKEN_BALANCES": 195,
+            "ACCOUNT_IS_TREASURY": 196
+          }
+        },
+        "ConsensusTopicInfo": {
+          "fields": {
+            "memo": {
+              "type": "string",
+              "id": 1
+            },
+            "runningHash": {
+              "type": "bytes",
+              "id": 2
+            },
+            "sequenceNumber": {
+              "type": "uint64",
+              "id": 3
+            },
+            "expirationTime": {
+              "type": "Timestamp",
+              "id": 4
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 5
+            },
+            "submitKey": {
+              "type": "Key",
+              "id": 6
+            },
+            "autoRenewPeriod": {
+              "type": "Duration",
+              "id": 7
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 8
+            }
+          }
+        },
+        "ConsensusService": {
+          "methods": {
+            "createTopic": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "updateTopic": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "deleteTopic": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "getTopicInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "submitMessage": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            }
+          }
+        },
+        "Query": {
+          "oneofs": {
+            "query": {
+              "oneof": [
+                "getByKey",
+                "getBySolidityID",
+                "contractCallLocal",
+                "contractGetInfo",
+                "contractGetBytecode",
+                "ContractGetRecords",
+                "cryptogetAccountBalance",
+                "cryptoGetAccountRecords",
+                "cryptoGetInfo",
+                "cryptoGetLiveHash",
+                "cryptoGetProxyStakers",
+                "fileGetContents",
+                "fileGetInfo",
+                "transactionGetReceipt",
+                "transactionGetRecord",
+                "transactionGetFastRecord",
+                "consensusGetTopicInfo",
+                "networkGetVersionInfo",
+                "tokenGetInfo"
+              ]
+            }
+          },
+          "fields": {
+            "getByKey": {
+              "type": "GetByKeyQuery",
+              "id": 1
+            },
+            "getBySolidityID": {
+              "type": "GetBySolidityIDQuery",
+              "id": 2
+            },
+            "contractCallLocal": {
+              "type": "ContractCallLocalQuery",
+              "id": 3
+            },
+            "contractGetInfo": {
+              "type": "ContractGetInfoQuery",
+              "id": 4
+            },
+            "contractGetBytecode": {
+              "type": "ContractGetBytecodeQuery",
+              "id": 5
+            },
+            "ContractGetRecords": {
+              "type": "ContractGetRecordsQuery",
+              "id": 6
+            },
+            "cryptogetAccountBalance": {
+              "type": "CryptoGetAccountBalanceQuery",
+              "id": 7
+            },
+            "cryptoGetAccountRecords": {
+              "type": "CryptoGetAccountRecordsQuery",
+              "id": 8
+            },
+            "cryptoGetInfo": {
+              "type": "CryptoGetInfoQuery",
+              "id": 9
+            },
+            "cryptoGetLiveHash": {
+              "type": "CryptoGetLiveHashQuery",
+              "id": 10
+            },
+            "cryptoGetProxyStakers": {
+              "type": "CryptoGetStakersQuery",
+              "id": 11
+            },
+            "fileGetContents": {
+              "type": "FileGetContentsQuery",
+              "id": 12
+            },
+            "fileGetInfo": {
+              "type": "FileGetInfoQuery",
+              "id": 13
+            },
+            "transactionGetReceipt": {
+              "type": "TransactionGetReceiptQuery",
+              "id": 14
+            },
+            "transactionGetRecord": {
+              "type": "TransactionGetRecordQuery",
+              "id": 15
+            },
+            "transactionGetFastRecord": {
+              "type": "TransactionGetFastRecordQuery",
+              "id": 16
+            },
+            "consensusGetTopicInfo": {
+              "type": "ConsensusGetTopicInfoQuery",
+              "id": 50
+            },
+            "networkGetVersionInfo": {
+              "type": "NetworkGetVersionInfoQuery",
+              "id": 51
+            },
+            "tokenGetInfo": {
+              "type": "TokenGetInfoQuery",
+              "id": 52
+            }
+          }
+        },
+        "GetByKeyQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "key": {
+              "type": "Key",
+              "id": 2
+            }
+          }
+        },
+        "EntityID": {
+          "oneofs": {
+            "entity": {
+              "oneof": [
+                "accountID",
+                "liveHash",
+                "fileID",
+                "contractID"
+              ]
+            }
+          },
+          "fields": {
+            "accountID": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "liveHash": {
+              "type": "LiveHash",
+              "id": 2
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 3
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 4
+            }
+          }
+        },
+        "GetByKeyResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "entities": {
+              "rule": "repeated",
+              "type": "EntityID",
+              "id": 2
+            }
+          }
+        },
+        "GetBySolidityIDQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "solidityID": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "GetBySolidityIDResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 3
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 4
+            }
+          }
+        },
+        "ContractLoginfo": {
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "bloom": {
+              "type": "bytes",
+              "id": 2
+            },
+            "topic": {
+              "rule": "repeated",
+              "type": "bytes",
+              "id": 3
+            },
+            "data": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "ContractFunctionResult": {
+          "fields": {
+            "contractID": {
+              "type": "ContractID",
+              "id": 1
+            },
+            "contractCallResult": {
+              "type": "bytes",
+              "id": 2
+            },
+            "errorMessage": {
+              "type": "string",
+              "id": 3
+            },
+            "bloom": {
+              "type": "bytes",
+              "id": 4
+            },
+            "gasUsed": {
+              "type": "uint64",
+              "id": 5
+            },
+            "logInfo": {
+              "rule": "repeated",
+              "type": "ContractLoginfo",
+              "id": 6
+            },
+            "createdContractIDs": {
+              "rule": "repeated",
+              "type": "ContractID",
+              "id": 7
+            }
+          }
+        },
+        "ContractCallLocalQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            },
+            "gas": {
+              "type": "int64",
+              "id": 3
+            },
+            "functionParameters": {
+              "type": "bytes",
+              "id": 4
+            },
+            "maxResultSize": {
+              "type": "int64",
+              "id": 5
+            }
+          }
+        },
+        "ContractCallLocalResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "functionResult": {
+              "type": "ContractFunctionResult",
+              "id": 2
+            }
+          }
+        },
+        "ContractGetInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            }
+          }
+        },
+        "ContractGetInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "contractInfo": {
+              "type": "ContractInfo",
+              "id": 2
+            }
+          },
+          "nested": {
+            "ContractInfo": {
+              "fields": {
+                "contractID": {
+                  "type": "ContractID",
+                  "id": 1
+                },
+                "accountID": {
+                  "type": "AccountID",
+                  "id": 2
+                },
+                "contractAccountID": {
+                  "type": "string",
+                  "id": 3
+                },
+                "adminKey": {
+                  "type": "Key",
+                  "id": 4
+                },
+                "expirationTime": {
+                  "type": "Timestamp",
+                  "id": 5
+                },
+                "autoRenewPeriod": {
+                  "type": "Duration",
+                  "id": 6
+                },
+                "storage": {
+                  "type": "int64",
+                  "id": 7
+                },
+                "memo": {
+                  "type": "string",
+                  "id": 8
+                },
+                "balance": {
+                  "type": "uint64",
+                  "id": 9
+                }
+              }
+            }
+          }
+        },
+        "ContractGetBytecodeQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            }
+          }
+        },
+        "ContractGetBytecodeResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "bytecode": {
+              "type": "bytes",
+              "id": 6
+            }
+          }
+        },
+        "ContractGetRecordsQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            }
+          }
+        },
+        "ContractGetRecordsResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 2
+            },
+            "records": {
+              "rule": "repeated",
+              "type": "TransactionRecord",
+              "id": 3
+            }
+          }
+        },
+        "TransactionRecord": {
+          "oneofs": {
+            "body": {
+              "oneof": [
+                "contractCallResult",
+                "contractCreateResult"
+              ]
+            }
+          },
+          "fields": {
+            "receipt": {
+              "type": "TransactionReceipt",
+              "id": 1
+            },
+            "transactionHash": {
+              "type": "bytes",
+              "id": 2
+            },
+            "consensusTimestamp": {
+              "type": "Timestamp",
+              "id": 3
+            },
+            "transactionID": {
+              "type": "TransactionID",
+              "id": 4
+            },
+            "memo": {
+              "type": "string",
+              "id": 5
+            },
+            "transactionFee": {
+              "type": "uint64",
+              "id": 6
+            },
+            "contractCallResult": {
+              "type": "ContractFunctionResult",
+              "id": 7
+            },
+            "contractCreateResult": {
+              "type": "ContractFunctionResult",
+              "id": 8
+            },
+            "transferList": {
+              "type": "TransferList",
+              "id": 10
+            },
+            "tokenTransferLists": {
+              "rule": "repeated",
+              "type": "TokenTransferList",
+              "id": 11
+            }
+          }
+        },
+        "TransactionReceipt": {
+          "fields": {
+            "status": {
+              "type": "ResponseCodeEnum",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 3
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 4
+            },
+            "exchangeRate": {
+              "type": "ExchangeRateSet",
+              "id": 5
+            },
+            "topicID": {
+              "type": "TopicID",
+              "id": 6
+            },
+            "topicSequenceNumber": {
+              "type": "uint64",
+              "id": 7
+            },
+            "topicRunningHash": {
+              "type": "bytes",
+              "id": 8
+            },
+            "topicRunningHashVersion": {
+              "type": "uint64",
+              "id": 9
+            },
+            "tokenId": {
+              "type": "TokenID",
+              "id": 10
+            }
+          }
+        },
+        "ExchangeRate": {
+          "fields": {
+            "hbarEquiv": {
+              "type": "int32",
+              "id": 1
+            },
+            "centEquiv": {
+              "type": "int32",
+              "id": 2
+            },
+            "expirationTime": {
+              "type": "TimestampSeconds",
+              "id": 3
+            }
+          }
+        },
+        "ExchangeRateSet": {
+          "fields": {
+            "currentRate": {
+              "type": "ExchangeRate",
+              "id": 1
+            },
+            "nextRate": {
+              "type": "ExchangeRate",
+              "id": 2
+            }
+          }
+        },
+        "CryptoGetAccountBalanceQuery": {
+          "oneofs": {
+            "balanceSource": {
+              "oneof": [
+                "accountID",
+                "contractID"
+              ]
+            }
+          },
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "contractID": {
+              "type": "ContractID",
+              "id": 3
+            }
+          }
+        },
+        "TokenBalance": {
+          "fields": {
+            "tokenId": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "balance": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "TokenBalances": {
+          "fields": {
+            "tokenBalances": {
+              "rule": "repeated",
+              "type": "TokenBalance",
+              "id": 1
+            }
+          }
+        },
+        "CryptoGetAccountBalanceResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "balance": {
+              "type": "uint64",
+              "id": 3
+            },
+            "tokenBalances": {
+              "rule": "repeated",
+              "type": "TokenBalance",
+              "id": 4
+            }
+          }
+        },
+        "CryptoGetAccountRecordsQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "CryptoGetAccountRecordsResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "records": {
+              "rule": "repeated",
+              "type": "TransactionRecord",
+              "id": 3
+            }
+          }
+        },
+        "CryptoGetInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "CryptoGetInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "accountInfo": {
+              "type": "AccountInfo",
+              "id": 2
+            }
+          },
+          "nested": {
+            "AccountInfo": {
+              "fields": {
+                "accountID": {
+                  "type": "AccountID",
+                  "id": 1
+                },
+                "contractAccountID": {
+                  "type": "string",
+                  "id": 2
+                },
+                "deleted": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "proxyAccountID": {
+                  "type": "AccountID",
+                  "id": 4
+                },
+                "proxyReceived": {
+                  "type": "int64",
+                  "id": 6
+                },
+                "key": {
+                  "type": "Key",
+                  "id": 7
+                },
+                "balance": {
+                  "type": "uint64",
+                  "id": 8
+                },
+                "generateSendRecordThreshold": {
+                  "type": "uint64",
+                  "id": 9,
+                  "options": {
+                    "deprecated": true
+                  }
+                },
+                "generateReceiveRecordThreshold": {
+                  "type": "uint64",
+                  "id": 10,
+                  "options": {
+                    "deprecated": true
+                  }
+                },
+                "receiverSigRequired": {
+                  "type": "bool",
+                  "id": 11
+                },
+                "expirationTime": {
+                  "type": "Timestamp",
+                  "id": 12
+                },
+                "autoRenewPeriod": {
+                  "type": "Duration",
+                  "id": 13
+                },
+                "liveHashes": {
+                  "rule": "repeated",
+                  "type": "LiveHash",
+                  "id": 14
+                },
+                "tokenRelationships": {
+                  "rule": "repeated",
+                  "type": "TokenRelationship",
+                  "id": 15
+                }
+              }
+            }
+          }
+        },
+        "TokenRelationship": {
+          "fields": {
+            "tokenId": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "symbol": {
+              "type": "string",
+              "id": 2
+            },
+            "balance": {
+              "type": "uint64",
+              "id": 3
+            },
+            "kycStatus": {
+              "type": "TokenKycStatus",
+              "id": 4
+            },
+            "freezeStatus": {
+              "type": "TokenFreezeStatus",
+              "id": 5
+            }
+          }
+        },
+        "CryptoGetLiveHashQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 3
+            }
+          }
+        },
+        "CryptoGetLiveHashResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "liveHash": {
+              "type": "LiveHash",
+              "id": 2
+            }
+          }
+        },
+        "CryptoGetStakersQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "accountID": {
+              "type": "AccountID",
+              "id": 2
+            }
+          }
+        },
+        "ProxyStaker": {
+          "fields": {
+            "accountID": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "amount": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "AllProxyStakers": {
+          "fields": {
+            "accountID": {
+              "type": "AccountID",
+              "id": 1
+            },
+            "proxyStaker": {
+              "rule": "repeated",
+              "type": "ProxyStaker",
+              "id": 2
+            }
+          }
+        },
+        "CryptoGetStakersResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "stakers": {
+              "type": "AllProxyStakers",
+              "id": 3
+            }
+          }
+        },
+        "FileGetContentsQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 2
+            }
+          }
+        },
+        "FileGetContentsResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "fileContents": {
+              "type": "FileContents",
+              "id": 2
+            }
+          },
+          "nested": {
+            "FileContents": {
+              "fields": {
+                "fileID": {
+                  "type": "FileID",
+                  "id": 1
+                },
+                "contents": {
+                  "type": "bytes",
+                  "id": 2
+                }
+              }
+            }
+          }
+        },
+        "FileGetInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "fileID": {
+              "type": "FileID",
+              "id": 2
+            }
+          }
+        },
+        "FileGetInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "fileInfo": {
+              "type": "FileInfo",
+              "id": 2
+            }
+          },
+          "nested": {
+            "FileInfo": {
+              "fields": {
+                "fileID": {
+                  "type": "FileID",
+                  "id": 1
+                },
+                "size": {
+                  "type": "int64",
+                  "id": 2
+                },
+                "expirationTime": {
+                  "type": "Timestamp",
+                  "id": 3
+                },
+                "deleted": {
+                  "type": "bool",
+                  "id": 4
+                },
+                "keys": {
+                  "type": "KeyList",
+                  "id": 5
+                }
+              }
+            }
+          }
+        },
+        "TransactionGetReceiptQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "transactionID": {
+              "type": "TransactionID",
+              "id": 2
+            },
+            "includeDuplicates": {
+              "type": "bool",
+              "id": 3
+            }
+          }
+        },
+        "TransactionGetReceiptResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "receipt": {
+              "type": "TransactionReceipt",
+              "id": 2
+            },
+            "duplicateTransactionReceipts": {
+              "rule": "repeated",
+              "type": "TransactionReceipt",
+              "id": 4
+            }
+          }
+        },
+        "TransactionGetRecordQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "transactionID": {
+              "type": "TransactionID",
+              "id": 2
+            },
+            "includeDuplicates": {
+              "type": "bool",
+              "id": 3
+            }
+          }
+        },
+        "TransactionGetRecordResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "transactionRecord": {
+              "type": "TransactionRecord",
+              "id": 3
+            },
+            "duplicateTransactionRecords": {
+              "rule": "repeated",
+              "type": "TransactionRecord",
+              "id": 4
+            }
+          }
+        },
+        "TransactionGetFastRecordQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "transactionID": {
+              "type": "TransactionID",
+              "id": 2
+            }
+          }
+        },
+        "TransactionGetFastRecordResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "transactionRecord": {
+              "type": "TransactionRecord",
+              "id": 2
+            }
+          }
+        },
+        "NetworkGetVersionInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            }
+          }
+        },
+        "NetworkGetVersionInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "hapiProtoVersion": {
+              "type": "SemanticVersion",
+              "id": 2
+            },
+            "hederaServicesVersion": {
+              "type": "SemanticVersion",
+              "id": 3
+            }
+          }
+        },
+        "TokenGetInfoQuery": {
+          "fields": {
+            "header": {
+              "type": "QueryHeader",
+              "id": 1
+            },
+            "token": {
+              "type": "TokenID",
+              "id": 2
+            }
+          }
+        },
+        "TokenInfo": {
+          "fields": {
+            "tokenId": {
+              "type": "TokenID",
+              "id": 1
+            },
+            "name": {
+              "type": "string",
+              "id": 2
+            },
+            "symbol": {
+              "type": "string",
+              "id": 3
+            },
+            "decimals": {
+              "type": "uint32",
+              "id": 4
+            },
+            "totalSupply": {
+              "type": "uint64",
+              "id": 5
+            },
+            "treasury": {
+              "type": "AccountID",
+              "id": 6
+            },
+            "adminKey": {
+              "type": "Key",
+              "id": 7
+            },
+            "kycKey": {
+              "type": "Key",
+              "id": 8
+            },
+            "freezeKey": {
+              "type": "Key",
+              "id": 9
+            },
+            "wipeKey": {
+              "type": "Key",
+              "id": 10
+            },
+            "supplyKey": {
+              "type": "Key",
+              "id": 11
+            },
+            "defaultFreezeStatus": {
+              "type": "TokenFreezeStatus",
+              "id": 12
+            },
+            "defaultKycStatus": {
+              "type": "TokenKycStatus",
+              "id": 13
+            },
+            "isDeleted": {
+              "type": "bool",
+              "id": 14
+            },
+            "autoRenewAccount": {
+              "type": "AccountID",
+              "id": 15
+            },
+            "autoRenewPeriod": {
+              "type": "uint64",
+              "id": 16
+            },
+            "expiry": {
+              "type": "uint64",
+              "id": 17
+            }
+          }
+        },
+        "TokenGetInfoResponse": {
+          "fields": {
+            "header": {
+              "type": "ResponseHeader",
+              "id": 1
+            },
+            "tokenInfo": {
+              "type": "TokenInfo",
+              "id": 2
+            }
+          }
+        },
+        "Response": {
+          "oneofs": {
+            "response": {
+              "oneof": [
+                "getByKey",
+                "getBySolidityID",
+                "contractCallLocal",
+                "contractGetBytecodeResponse",
+                "contractGetInfo",
+                "contractGetRecordsResponse",
+                "cryptogetAccountBalance",
+                "cryptoGetAccountRecords",
+                "cryptoGetInfo",
+                "cryptoGetLiveHash",
+                "cryptoGetProxyStakers",
+                "fileGetContents",
+                "fileGetInfo",
+                "transactionGetReceipt",
+                "transactionGetRecord",
+                "transactionGetFastRecord",
+                "consensusGetTopicInfo",
+                "networkGetVersionInfo",
+                "tokenGetInfo"
+              ]
+            }
+          },
+          "fields": {
+            "getByKey": {
+              "type": "GetByKeyResponse",
+              "id": 1
+            },
+            "getBySolidityID": {
+              "type": "GetBySolidityIDResponse",
+              "id": 2
+            },
+            "contractCallLocal": {
+              "type": "ContractCallLocalResponse",
+              "id": 3
+            },
+            "contractGetBytecodeResponse": {
+              "type": "ContractGetBytecodeResponse",
+              "id": 5
+            },
+            "contractGetInfo": {
+              "type": "ContractGetInfoResponse",
+              "id": 4
+            },
+            "contractGetRecordsResponse": {
+              "type": "ContractGetRecordsResponse",
+              "id": 6
+            },
+            "cryptogetAccountBalance": {
+              "type": "CryptoGetAccountBalanceResponse",
+              "id": 7
+            },
+            "cryptoGetAccountRecords": {
+              "type": "CryptoGetAccountRecordsResponse",
+              "id": 8
+            },
+            "cryptoGetInfo": {
+              "type": "CryptoGetInfoResponse",
+              "id": 9
+            },
+            "cryptoGetLiveHash": {
+              "type": "CryptoGetLiveHashResponse",
+              "id": 10
+            },
+            "cryptoGetProxyStakers": {
+              "type": "CryptoGetStakersResponse",
+              "id": 11
+            },
+            "fileGetContents": {
+              "type": "FileGetContentsResponse",
+              "id": 12
+            },
+            "fileGetInfo": {
+              "type": "FileGetInfoResponse",
+              "id": 13
+            },
+            "transactionGetReceipt": {
+              "type": "TransactionGetReceiptResponse",
+              "id": 14
+            },
+            "transactionGetRecord": {
+              "type": "TransactionGetRecordResponse",
+              "id": 15
+            },
+            "transactionGetFastRecord": {
+              "type": "TransactionGetFastRecordResponse",
+              "id": 16
+            },
+            "consensusGetTopicInfo": {
+              "type": "ConsensusGetTopicInfoResponse",
+              "id": 150
+            },
+            "networkGetVersionInfo": {
+              "type": "NetworkGetVersionInfoResponse",
+              "id": 151
+            },
+            "tokenGetInfo": {
+              "type": "TokenGetInfoResponse",
+              "id": 152
+            }
+          }
+        },
+        "CryptoService": {
+          "methods": {
+            "createAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "updateAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "cryptoTransfer": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "cryptoDelete": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "addLiveHash": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "deleteLiveHash": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "getLiveHash": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getAccountRecords": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "cryptoGetBalance": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getAccountInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getTransactionReceipts": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getFastTransactionRecord": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getTxRecordByTxID": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getStakersByAccountID": {
+              "requestType": "Query",
+              "responseType": "Response"
+            }
+          }
+        },
+        "FileService": {
+          "methods": {
+            "createFile": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "updateFile": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "deleteFile": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "appendContent": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "getFileContent": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getFileInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "systemDelete": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "systemUndelete": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            }
+          }
+        },
+        "FreezeService": {
+          "methods": {
+            "freeze": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            }
+          }
+        },
+        "NetworkService": {
+          "methods": {
+            "getVersionInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "uncheckedSubmit": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            }
+          }
+        },
+        "SmartContractService": {
+          "methods": {
+            "createContract": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "updateContract": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "contractCallMethod": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "getContractInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "contractCallLocalMethod": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "ContractGetBytecode": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getBySolidityID": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "getTxRecordByContractID": {
+              "requestType": "Query",
+              "responseType": "Response"
+            },
+            "deleteContract": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "systemDelete": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "systemUndelete": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            }
+          }
+        },
+        "TokenService": {
+          "methods": {
+            "createToken": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "updateToken": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "mintToken": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "burnToken": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "deleteToken": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "wipeTokenAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "freezeTokenAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "unfreezeTokenAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "grantKycToTokenAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "revokeKycFromTokenAccount": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "transferTokens": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "associateTokens": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "dissociateTokens": {
+              "requestType": "Transaction",
+              "responseType": "TransactionResponse"
+            },
+            "getTokenInfo": {
+              "requestType": "Query",
+              "responseType": "Response"
+            }
+          }
+        },
+        "SignedTransaction": {
+          "fields": {
+            "bodyBytes": {
+              "type": "bytes",
+              "id": 1
+            },
+            "sigMap": {
+              "type": "SignatureMap",
+              "id": 2
+            }
+          }
+        }
+      }
+    },
+    "google": {
+      "nested": {
+        "protobuf": {
+          "nested": {
+            "DoubleValue": {
+              "fields": {
+                "value": {
+                  "type": "double",
+                  "id": 1
+                }
+              }
+            },
+            "FloatValue": {
+              "fields": {
+                "value": {
+                  "type": "float",
+                  "id": 1
+                }
+              }
+            },
+            "Int64Value": {
+              "fields": {
+                "value": {
+                  "type": "int64",
+                  "id": 1
+                }
+              }
+            },
+            "UInt64Value": {
+              "fields": {
+                "value": {
+                  "type": "uint64",
+                  "id": 1
+                }
+              }
+            },
+            "Int32Value": {
+              "fields": {
+                "value": {
+                  "type": "int32",
+                  "id": 1
+                }
+              }
+            },
+            "UInt32Value": {
+              "fields": {
+                "value": {
+                  "type": "uint32",
+                  "id": 1
+                }
+              }
+            },
+            "BoolValue": {
+              "fields": {
+                "value": {
+                  "type": "bool",
+                  "id": 1
+                }
+              }
+            },
+            "StringValue": {
+              "fields": {
+                "value": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "BytesValue": {
+              "fields": {
+                "value": {
+                  "type": "bytes",
+                  "id": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

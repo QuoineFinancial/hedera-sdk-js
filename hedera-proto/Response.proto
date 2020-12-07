@@ -2,6 +2,26 @@ syntax = "proto3";
 
 package proto;
 
+/*-
+ * ‌
+ * Hedera Network Services Protobuf
+ * ​
+ * Copyright (C) 2018 - 2020 Hedera Hashgraph, LLC
+ * ​
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ‍
+ */
+
 option java_package = "com.hederahashgraph.api.proto.java";
 option java_multiple_files = true;
 
@@ -16,7 +36,7 @@ import "ContractGetRecords.proto";
 import "CryptoGetAccountBalance.proto";
 import "CryptoGetAccountRecords.proto";
 import "CryptoGetInfo.proto";
-import "CryptoGetClaim.proto";
+import "CryptoGetLiveHash.proto";
 import "CryptoGetStakers.proto";
 
 import "FileGetContents.proto";
@@ -25,6 +45,12 @@ import "FileGetInfo.proto";
 import "TransactionGetReceipt.proto";
 import "TransactionGetRecord.proto";
 import "TransactionGetFastRecord.proto";
+
+import "ConsensusGetTopicInfo.proto";
+
+import "NetworkGetVersionInfo.proto";
+
+import "TokenGetInfo.proto";
 
 /* A single response, which is returned from the node to the client, after the client sent the node a query. This includes all responses. */
 message Response {
@@ -40,14 +66,20 @@ message Response {
         CryptoGetAccountBalanceResponse cryptogetAccountBalance = 7; // Get the current balance in a cryptocurrency account
         CryptoGetAccountRecordsResponse cryptoGetAccountRecords = 8; // Get all the records that currently exist for transactions involving an account
         CryptoGetInfoResponse cryptoGetInfo = 9; // Get all information about an account
-        CryptoGetClaimResponse cryptoGetClaim = 10; // Get a single claim from a single account (or null if it doesn't exist)
+        CryptoGetLiveHashResponse cryptoGetLiveHash = 10; // Contains a livehash associated to an account
         CryptoGetStakersResponse cryptoGetProxyStakers = 11; // Get all the accounts that proxy stake to a given account, and how much they proxy stake
 
         FileGetContentsResponse fileGetContents = 12; // Get the contents of a file (the bytes stored in it)
         FileGetInfoResponse fileGetInfo = 13; // Get information about a file, such as its expiration date
 
-        TransactionGetReceiptResponse transactionGetReceipt = 14; // Get a receipt for a transaction (lasts 180 seconds)
-        TransactionGetRecordResponse transactionGetRecord = 15; // Get a record for a transaction (lasts 1 hour)
+        TransactionGetReceiptResponse transactionGetReceipt = 14; // Get a receipt for a transaction
+        TransactionGetRecordResponse transactionGetRecord = 15; // Get a record for a transaction
         TransactionGetFastRecordResponse transactionGetFastRecord = 16; // Get a record for a transaction (lasts 180 seconds)
+
+        ConsensusGetTopicInfoResponse consensusGetTopicInfo = 150; // Parameters of and state of a consensus topic..
+
+        NetworkGetVersionInfoResponse networkGetVersionInfo = 151; // Semantic versions of Hedera Services and HAPI proto
+
+        TokenGetInfoResponse tokenGetInfo = 152; // Get all information about a token
     }
 }
