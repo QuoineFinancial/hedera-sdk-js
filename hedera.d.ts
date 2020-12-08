@@ -147,9 +147,9 @@ export declare namespace Query {
 export declare class Query {
   constructor(options: { nodeAccountId: AccountID | string, operatorId: AccountID | string });
 
-  serialize(): Promise<string>;
-  static deserialize(hex: string): Promise<{}>;
-  signTransaction(privateKey: string): Promise<Query>;
+  serialize(): Buffer;
+  static deserialize(hex: string): {};
+  signTransaction(privateKey: string): Query;
   toObject(): {};
 }
 
@@ -163,6 +163,7 @@ export declare class Transaction {
 
   get signatureHash(): Buffer;
   addSignature(signature: string | Buffer, publicKey: string): Transaction;
+  serialize(): Buffer;
   static deserialize(hex: string): Transaction;
   static serializeBody(tx: any): Buffer;
   toObject(): Transaction;
