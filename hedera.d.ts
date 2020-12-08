@@ -23,7 +23,8 @@ export declare namespace util {
   function getTransfers(transaction: {}): { accountId: string, amount: string }[];
   function getRecordTransfers(record: {}): { accountId: string, amount: string }[];
   function deserializeTx(hex: string): Transaction
-  function serializeAccountID(accountId: AccountID): string
+  function serializeAccountID(accountId: AccountID): string;
+  function serializeTxID(transactionID: TransactionID): string;
 }
 
 export declare interface Duration {
@@ -147,9 +148,9 @@ export declare namespace Query {
 export declare class Query {
   constructor(options: { nodeAccountId: AccountID | string, operatorId: AccountID | string });
 
-  serialize(): Promise<string>;
-  static deserialize(hex: string): Promise<{}>;
-  signTransaction(privateKey: string): Promise<Query>;
+  serialize(): Buffer;
+  static deserialize(hex: string): {};
+  signTransaction(privateKey: string): Query;
   toObject(): {};
 }
 
@@ -161,8 +162,9 @@ export declare interface Transaction {
 export declare class Transaction {
   constructor(options: { operatorId: AccountID | string, nodeAccountId: AccountID | string});
 
+  get signatureHash(): Buffer;
   addSignature(signature: string | Buffer, publicKey: string): Transaction;
-  serialize(): string;
+  serialize(): Buffer;
   static deserialize(hex: string): Transaction;
   static serializeBody(tx: any): Buffer;
   toObject(): Transaction;
