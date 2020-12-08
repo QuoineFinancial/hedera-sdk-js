@@ -161,8 +161,8 @@ export declare interface Transaction {
 export declare class Transaction {
   constructor(options: { operatorId: AccountID | string, nodeAccountId: AccountID | string});
 
+  get signatureHash(): Buffer;
   addSignature(signature: string | Buffer, publicKey: string): Transaction;
-  serialize(): string;
   static deserialize(hex: string): Transaction;
   static serializeBody(tx: any): Buffer;
   toObject(): Transaction;
