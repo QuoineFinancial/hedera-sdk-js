@@ -15,12 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "@fidm/asn1": "^1.0.4",
-    "@hashgraph/sdk": "^0.5.1",
     "bluebird": "^3.5.5",
     "decimal.js": "^10.2.0",
     "grpc": "^1.22.2",
     "grpc-caller": "^0.13.0",
-    "hedera-sdk-js": "https://github.com/QuoineFinancial/hedera-sdk-js.git#feature/get-signature-hash",
     "long": "^4.0.0",
     "nano-seconds": "^1.2.2",
     "node-forge": "^0.10.0",
