@@ -23,7 +23,8 @@ export declare namespace util {
   function getTransfers(transaction: {}): { accountId: string, amount: string }[];
   function getRecordTransfers(record: {}): { accountId: string, amount: string }[];
   function deserializeTx(hex: string): Transaction
-  function serializeAccountID(accountId: AccountID): string
+  function serializeAccountID(accountId: AccountID): string;
+  function serializeTxID(transactionID: TransactionID): string;
 }
 
 export declare interface Duration {
