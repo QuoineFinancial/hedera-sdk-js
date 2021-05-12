@@ -17,7 +17,7 @@
     "@fidm/asn1": "^1.0.4",
     "bluebird": "^3.5.5",
     "decimal.js": "^10.2.0",
-    "grpc": "^1.22.2",
+    "grpc": "^1.24.9",
     "grpc-caller": "^0.13.0",
     "long": "^4.0.0",
     "nano-seconds": "^1.2.2",
