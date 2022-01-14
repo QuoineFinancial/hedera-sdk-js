@@ -21,7 +21,7 @@
     "grpc-caller": "^0.13.0",
     "long": "^4.0.0",
     "nano-seconds": "^1.2.2",
-    "node-forge": "^0.10.0",
+    "node-forge": "^1.0.0",
     "protobufjs": "^6.8.8"
   },
   "devDependencies": {
