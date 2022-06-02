@@ -22,7 +22,7 @@
     "long": "^4.0.0",
     "nano-seconds": "^1.2.2",
     "node-forge": "^0.10.0",
-    "protobufjs": "^6.8.8"
+    "protobufjs": "^6.11.3"
   },
   "devDependencies": {
     "eslint": "^6.3.0",
